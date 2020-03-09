@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroOrdenDetalle.UI.Registros"
+       xmlns:m="clr-namespace:Ordenes.Validacion"
         mc:Ignorable="d"
         Title="P R O D U C T O" Height="450" Width="800">
     <Grid  Name="ProductoMainGrid">
@@ -12,26 +13,40 @@
                 <Setter Property="MaxWidth" Value="200"></Setter>
             </Style>
         </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" MinWidth="190"  />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="32"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+
         <Label Content="ProductoId" HorizontalAlignment="Left" Margin="60,57,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="60,121,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Arial"/>
         <Label Content="Precio" HorizontalAlignment="Left" Margin="64,184,0,0" VerticalAlignment="Top" FontSize="30"/>
         <Label Content="Inventario" HorizontalAlignment="Left" Margin="59,252,0,0" VerticalAlignment="Top" FontSize="30"/>
-        <TextBox x:Name="ProductoIdTextBox" HorizontalAlignment="Left" Margin="242,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Height="34"/>
-        <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Margin="241,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369" Height="35"/>
-        <TextBox x:Name="PrecioTextBox" HorizontalAlignment="Left" Margin="241,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Height="37"/>
+
+
+        <TextBox x:Name="ProductoIdTextBox" HorizontalAlignment="Left" Margin="242,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Height="34">
+            <TextBox.Text>
+                <Binding Path="ProductoId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+
+        <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Margin="500,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369" Height="35">
+            <TextBox.Text>
+                <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="PrecioTextBox" HorizontalAlignment="Left" Margin="239,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Height="37"/>
         <TextBox x:Name="InventarioTextBox" HorizontalAlignment="Left" Margin="243,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="33"/>
+
+
+
+
+
         <Button x:Name="BuscarButton" Content="Buscar" HorizontalAlignment="Left" Margin="638,59,0,0" VerticalAlignment="Top" Height="46" Width="114" FontSize="24" FontFamily="Arial Black" Click="BuscarButton_Click"/>
         <Button x:Name="NuevoButton" Content="Nuevo" HorizontalAlignment="Left" Margin="67,338,0,0" VerticalAlignment="Top" FontSize="30" Click="NuevoButton_Click"/>
         <Button x:Name="GuardarButton" Content="Guardar" HorizontalAlignment="Left" Margin="240,338,0,0" VerticalAlignment="Top" FontSize="30" RenderTransformOrigin="0.515,0.513" Click="GuardarButton_Click"/>
