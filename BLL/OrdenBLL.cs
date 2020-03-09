@@ -33,7 +33,7 @@ namespace RegistroOrdenDetalle.BLL
             return paso;
         }
 
-        public static Orden Buscar(int id)//            buscar
+        public static Orden Buscar(int id)//buscar
         {
             Contexto contexto = new Contexto();
             Orden orden = new Orden();

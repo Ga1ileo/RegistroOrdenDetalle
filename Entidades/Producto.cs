@@ -14,8 +14,6 @@ namespace RegistroOrdenDetalle.Entidades
         public int Precio { get; set; }
         public int Inventario { get; set; }
 
-
-
         [ForeignKey("ProductoId")]
         public virtual List<OrdenDetalle> OrdenDetalle { get; set; }
 

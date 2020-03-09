@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroOrdenDetalle.UI.Registros"
-       xmlns:m="clr-namespace:Ordenes.Validacion"
+   
         mc:Ignorable="d"
         Title="P R O D U C T O" Height="450" Width="800">
     <Grid  Name="ProductoMainGrid">
@@ -39,12 +39,28 @@
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
+           
         </TextBox>
-        <TextBox x:Name="PrecioTextBox" HorizontalAlignment="Left" Margin="239,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Height="37"/>
-        <TextBox x:Name="InventarioTextBox" HorizontalAlignment="Left" Margin="243,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="33"/>
 
+        <TextBox x:Name="PrecioTextBox" HorizontalAlignment="Left" Margin="239,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Height="37">
+            <TextBox.Text>
+                <Binding Path="Precio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
-
+        <TextBox x:Name="InventarioTextBox" HorizontalAlignment="Left" Margin="243,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="33">
+            <TextBox.Text>
+                <Binding Path="Inventario" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
 
         <Button x:Name="BuscarButton" Content="Buscar" HorizontalAlignment="Left" Margin="638,59,0,0" VerticalAlignment="Top" Height="46" Width="114" FontSize="24" FontFamily="Arial Black" Click="BuscarButton_Click"/>
